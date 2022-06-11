@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
+    'crispy_forms',
     # local apps
     'pages.apps.PagesConfig',
 ]
@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
@@ -141,3 +141,13 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "/"
+ACCOUNT_SESSION_REMEMBER = True
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend" # para o usuário confirmar o email
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # Força que o django peça a senha para cadastro apenas uma vez
+ACCOUNT_USERNAME_REQUIRED = False # Força que o django peça o username para cadastro apenas uma vez
+ACCOUNT_AUTHENTICATION_METHOD = "email" # método de autenticação de email
+ACCOUNT_EMAIL_REQUIRED = True # Coloca o login por email como padrão
+ACCOUNT_UNIQUE_EMAIL = True # Seta o email como único
+
+# django-crispy-forms
+CRISPY_TEMPLATE_PACK = "bootstrap4"
